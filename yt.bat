@@ -21,5 +21,5 @@ title Saving stream to %Outfile%.mp4
 echo #
 echo Saving stream to %Outfile%.mp4
 echo #
-youtube-dl.exe --output "%Outfile%.mp4" %Stream%
+youtube-dl.exe --output "%Outfile%.mp4" "%Stream%"
 Pause&Exit
