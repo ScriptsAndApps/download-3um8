@@ -17,9 +17,9 @@ set Outfile=out.mp4
 
 :init
 
-title Saving %Outfile%.mp4 %Stream%
+title Saving stream to %Outfile%.mp4
 echo #
-echo Starting  %Outfile%.mp4 %Stream%
+echo Saving stream to %Outfile%.mp4
 echo #
-youtube-dl.exe --output %Outfile%.mp4 %Stream%
+youtube-dl.exe --output "%Outfile%.mp4" %Stream%
 Pause&Exit
