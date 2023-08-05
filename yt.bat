@@ -21,5 +21,7 @@ title Saving stream to %Outfile%.mp4
 echo #
 echo Saving stream to %Outfile%.mp4
 echo #
-youtube-dl.exe --output "%Outfile%.mp4" "%Stream%"
+"%~dp0\youtube-dl.exe" --output "%CD%\%Outfile%.mp4" "%Stream%"
 Pause&Exit
+
+rem C:\Windows\System32\cmd.exe /k "start cmd /k "D:\a film download\yt.bat"" && exit
