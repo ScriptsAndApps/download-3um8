@@ -7,10 +7,10 @@ set /P "Stream="
 IF /I "%Stream%" EQU "" (goto :start)
 
 echo %Stream%|find "/720/" >nul
-if errorlevel 1 (goto :fnn)
+if errorlevel 1 (goto :skiperror)
 
-echo #
 color 04
+echo #
 echo WARNING! THE VIDEO IS LOW QUALITY! /720/ DETECTED
 echo WARNING!
 echo WARNING! THE VIDEO IS LOW QUALITY! /720/ DETECTED
@@ -33,15 +33,53 @@ echo WARNING! THE VIDEO IS LOW QUALITY! /720/ DETECTED
 echo WARNING!
 pause
 color 0a
+goto :fileoutname
 
-:fnn
+
+:skiperror
+echo %Stream%|find "/360/" >nul
+if errorlevel 1 (goto :fileoutname)
+
+color 04
+echo #
+echo WARNING! THE VIDEO IS LOW QUALITY! /360/ DETECTED
+echo WARNING!
+echo WARNING! THE VIDEO IS LOW QUALITY! /360/ DETECTED
+echo WARNING!
+echo WARNING! THE VIDEO IS LOW QUALITY! /360/ DETECTED
+echo WARNING!
+echo WARNING! THE VIDEO IS LOW QUALITY! /360/ DETECTED
+echo WARNING!
+echo WARNING! THE VIDEO IS LOW QUALITY! /360/ DETECTED
+echo WARNING!
+echo WARNING! THE VIDEO IS LOW QUALITY! /360/ DETECTED
+echo WARNING!
+echo WARNING! THE VIDEO IS LOW QUALITY! /360/ DETECTED
+echo WARNING!
+echo WARNING! THE VIDEO IS LOW QUALITY! /360/ DETECTED
+echo WARNING!
+echo WARNING! THE VIDEO IS LOW QUALITY! /360/ DETECTED
+echo WARNING!
+echo WARNING! THE VIDEO IS LOW QUALITY! /360/ DETECTED
+echo WARNING!
+echo WARNING! THE VIDEO IS LOW QUALITY! /360/ DETECTED
+echo WARNING!
+echo WARNING! THE VIDEO IS LOW QUALITY! /360/ DETECTED
+echo WARNING!
+echo WARNING! THE VIDEO IS LOW QUALITY! /360/ DETECTED
+echo WARNING!
+pause
+color 0a
+
+
+:fileoutname
 echo #
 echo file save name pl0x (default: out.mp4):
 set /P "Outfile="
 
-IF /I "%Outfile%" EQU "" (goto :ofnn) ELSE (goto :init)
+IF /I "%Outfile%" EQU "" (goto :defaultfilename) ELSE (goto :init)
 
-:ofnn
+:defaultfilename
 set Outfile=out.mp4
 
 :init
